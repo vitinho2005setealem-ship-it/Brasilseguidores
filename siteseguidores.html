@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Painel Oficial Seguidores</title>
+
+<style>
+
+body{
+margin:0;
+font-family:Arial;
+background:#0f0f0f;
+color:white;
+}
+
+header{
+background:linear-gradient(45deg,#ff0066,#ff3399);
+padding:20px;
+text-align:center;
+font-size:26px;
+font-weight:bold;
+}
+
+.online{
+text-align:center;
+background:#111;
+padding:10px;
+color:#00ff9c;
+font-size:14px;
+}
+
+.container{
+padding:30px;
+text-align:center;
+}
+
+.plans{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:20px;
+}
+
+.card{
+background:#1a1a1a;
+padding:25px;
+width:230px;
+border-radius:10px;
+box-shadow:0 0 10px rgba(0,0,0,0.6);
+transition:0.3s;
+}
+
+.card:hover{
+transform:scale(1.05);
+}
+
+.card h2{
+color:#ff2a7f;
+}
+
+.price{
+font-size:28px;
+margin:10px 0;
+}
+
+button{
+background:#25d366;
+border:none;
+padding:12px 20px;
+border-radius:6px;
+color:white;
+font-size:16px;
+cursor:pointer;
+}
+
+button:hover{
+background:#1ebe5d;
+}
+
+.pix{
+margin-top:40px;
+background:#1a1a1a;
+display:inline-block;
+padding:20px;
+border-radius:10px;
+}
+
+.pixcode{
+background:#000;
+padding:10px;
+border-radius:5px;
+margin-top:10px;
+word-break:break-all;
+}
+
+.copy{
+background:#ff0066;
+margin-top:10px;
+}
+
+#notificacao{
+position:fixed;
+bottom:20px;
+left:20px;
+background:#1b1b1b;
+padding:15px 20px;
+border-radius:8px;
+box-shadow:0 0 10px rgba(0,0,0,0.7);
+font-size:14px;
+display:none;
+}
+
+.info{
+background:#111;
+margin-top:60px;
+padding:40px;
+text-align:center;
+}
+
+.info h2{
+color:#ff2a7f;
+}
+
+.info p{
+color:#ccc;
+max-width:700px;
+margin:auto;
+margin-top:10px;
+}
+
+.links{
+margin-top:20px;
+}
+
+.links a{
+color:#25d366;
+text-decoration:none;
+margin:0 10px;
+}
+
+footer{
+background:#000;
+padding:20px;
+text-align:center;
+font-size:13px;
+color:#777;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+🚀 Painel Oficial Seguidores Instagram
+</header>
+
+<div class="online">
+👥 <span id="online"></span> pessoas comprando agora
+</div>
+
+<div class="container">
+
+<h1>Compre Seguidores para Instagram</h1>
+<p>Entrega rápida e segura</p>
+
+<div class="plans">
+
+<div class="card">
+<h2>500 Seguidores</h2>
+<div class="price">R$10</div>
+<button onclick="buy('500 Seguidores')">Comprar</button>
+</div>
+
+<div class="card">
+<h2>1000 Seguidores</h2>
+<div class="price">R$18</div>
+<button onclick="buy('1000 Seguidores')">Comprar</button>
+</div>
+
+<div class="card">
+<h2>5000 Seguidores</h2>
+<div class="price">R$75</div>
+<button onclick="buy('5000 Seguidores')">Comprar</button>
+</div>
+
+<div class="card">
+<h2>10000 Seguidores</h2>
+<div class="price">R$140</div>
+<button onclick="buy('10000 Seguidores')">Comprar</button>
+</div>
+
+</div>
+
+<div class="pix">
+
+<h2>Pagamento via PIX</h2>
+
+<img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=PIX">
+
+<div class="pixcode" id="pix">
+00020126580014BR.GOV.BCB.PIX
+</div>
+
+<button class="copy" onclick="copiar()">Copiar PIX</button>
+
+</div>
+
+</div>
+
+<div id="notificacao"></div>
+
+<div class="info">
+
+<h2>Sobre nosso serviço</h2>
+
+<p>
+Somos um painel especializado em crescimento para redes sociais.
+Oferecemos seguidores com entrega rápida e suporte dedicado
+para ajudar perfis, criadores de conteúdo e empresas a crescer
+no Instagram.
+</p>
+
+<div class="links">
+
+<a href="https://wa.me/5569993004588">Suporte WhatsApp</a>
+<a href="#">Termos de Serviço</a>
+<a href="#">Política de Privacidade</a>
+
+</div>
+
+</div>
+
+<footer>
+© 2026 Painel Oficial Seguidores - Todos os direitos reservados
+</footer>
+
+<script>
+
+function buy(plano){
+
+let numero="5569993004588"
+let msg="Olá quero comprar "+plano
+
+window.open("https://wa.me/"+numero+"?text="+encodeURIComponent(msg))
+
+}
+
+function copiar(){
+
+let texto=document.getElementById("pix").innerText
+
+navigator.clipboard.writeText(texto)
+
+alert("PIX copiado!")
+
+}
+
+function gerarCPF(){
+
+let n1=Math.floor(Math.random()*900)+100
+let n2=Math.floor(Math.random()*90)+10
+
+return "***"+n1+"*****"+n2
+
+}
+
+function gerarUser(){
+
+let nomes=[
+"@joaopedro",
+"@luanofc",
+"@ana.silva",
+"@felipee",
+"@marcosx",
+"@maria.ofc",
+"@viralbr",
+"@instafamoso"
+]
+
+return nomes[Math.floor(Math.random()*nomes.length)]
+
+}
+
+function gerarPlano(){
+
+let planos=[
+"500 seguidores",
+"1000 seguidores",
+"5000 seguidores",
+"10000 seguidores"
+]
+
+return planos[Math.floor(Math.random()*planos.length)]
+
+}
+
+function notificar(){
+
+let box=document.getElementById("notificacao")
+
+box.innerHTML=gerarCPF()+" "+gerarUser()+" comprou "+gerarPlano()
+
+box.style.display="block"
+
+setTimeout(()=>{
+box.style.display="none"
+},4000)
+
+}
+
+setInterval(notificar,5000)
+
+function online(){
+
+let n=Math.floor(Math.random()*80)+120
+
+document.getElementById("online").innerText=n
+
+}
+
+setInterval(online,3000)
+
+online()
+
+</script>
+
+</body>
+</html>
